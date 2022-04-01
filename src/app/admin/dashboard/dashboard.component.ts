@@ -11,20 +11,20 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  jobs() {
+  jobs():void {
     this.router.navigate(['jobs'], { relativeTo: this.route });
   }
 
-  candidates() {
+  candidates():void {
     this.router.navigate(['candidates'], { relativeTo: this.route });
   }
 
-  appliedJobs()
+  appliedJobs():void
   {
     this.router.navigate(['jobs/applied'], { relativeTo: this.route });
   }
 
-  logout() {
+  logout():void {
     localStorage.clear();
     this.router.navigateByUrl('/admin/login');
   }

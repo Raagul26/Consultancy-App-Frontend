@@ -7,14 +7,14 @@ import { ApiService } from 'src/app/services/api.service';
   styles: [],
 })
 export class StatusComponent implements OnInit {
-  status: any;
+  appliedStatus!: {status:string,message:string,data:any[]};
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.apiService
       .getCandidateStatus(String(localStorage.getItem('candidateEmailId')))
       .subscribe((res) => {
-        this.status = res;
+        this.appliedStatus = res;
       });
   }
 }

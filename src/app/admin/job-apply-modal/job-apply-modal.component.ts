@@ -66,12 +66,17 @@ export class JobApplyModalComponent implements OnInit {
     }
   }
 
-  applyJobOrChangeStatus() {    
+  applyJobOrChangeStatus(): void {
     if (this.applyForm.valid && this.data.title == 'Apply') {
-      this.apiService.applyJob(this.applyForm.value).subscribe((res) => {
-        this.dialog.closeAll();
-        this.reloadComponent();
-      });
+      this.apiService.applyJob(this.applyForm.value).subscribe(
+        (res) => {
+          this.dialog.closeAll();
+          this.reloadComponent();
+        },
+        (err) => {
+          alert(err.error.message);
+        }
+      );
     } else if (this.applyForm.valid && this.data.title == 'Update') {
       this.apiService
         .changeApplicationStatus(this.applyForm.getRawValue())

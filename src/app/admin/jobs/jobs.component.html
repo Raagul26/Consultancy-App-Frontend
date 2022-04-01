@@ -41,7 +41,9 @@
           <td>{{ job.lastUpdatedOn | date }}</td>
           <td>
             <div *ngIf="job.status == 'active'" class="space-x-4">
-              <button class="hover:text-blue-500" (click)="edit(job)">Edit</button>
+              <button class="hover:text-blue-500" (click)="edit(job)">
+                Edit
+              </button>
               <button class="hover:text-red-500" (click)="delete(job.jobId)">
                 Delete
               </button>

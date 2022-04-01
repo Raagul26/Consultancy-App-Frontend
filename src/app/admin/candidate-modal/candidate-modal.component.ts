@@ -79,7 +79,7 @@ export class CandidateModalComponent implements OnInit {
     }
   }
 
-  createOrUpdateCandidate() {
+  createOrUpdateCandidate():void {
     if (this.candidateForm.valid && this.data.title == 'Create') {
       this.candidateDetails = {
         name: this.candidateForm.value.name,

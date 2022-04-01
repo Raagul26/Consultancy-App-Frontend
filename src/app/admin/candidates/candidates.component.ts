@@ -20,14 +20,14 @@ export class CandidatesComponent implements OnInit {
     });
   }
 
-  create()
+  create():void
   {
     this.dialog.open(CandidateModalComponent,{data:{
       title:"Create"
     }})
   }
 
-  edit(row:any)
+  edit(row:any):void
   {
     this.dialog.open(CandidateModalComponent,{data:{
       title:"Update",
@@ -35,7 +35,7 @@ export class CandidatesComponent implements OnInit {
     }})
   }
 
-  delete(emailId: string) {
+  delete(emailId: string):void {
     this.apiService.deleteCandidate(emailId).subscribe((data) => {
       console.log(data);
       this.reloadComponent()

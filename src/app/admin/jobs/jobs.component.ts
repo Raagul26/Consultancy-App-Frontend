@@ -3,18 +3,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
 import { JobModalComponent } from '../job-modal/job-modal.component';
 
-interface JobDetails{
-  id:string
-  jobId:string
-  title:string
-  overview:string
-  location:string
-  qualifications:string[]
-  skills:string[]
-  responsibilities:string[]
-  status:string
-  createdOn:string
-  lastUpdatedOn?:string
+interface JobDetails {
+  id: string;
+  jobId: string;
+  title: string;
+  overview: string;
+  location: string;
+  qualifications: string[];
+  skills: string[];
+  responsibilities: string[];
+  status: string;
+  createdOn: string;
+  lastUpdatedOn?: string;
 }
 
 @Component({
@@ -24,7 +24,7 @@ interface JobDetails{
 })
 export class JobsComponent implements OnInit {
   jobs: any;
-  constructor(private apiService: ApiService,private dialog:MatDialog) {}
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.apiService.getAllJobs().subscribe((data) => {
@@ -33,18 +33,21 @@ export class JobsComponent implements OnInit {
     });
   }
 
-  create()
-  {
-    this.dialog.open(JobModalComponent,{data:{
-      title:"Create"
-    }})
+  create() {
+    this.dialog.open(JobModalComponent, {
+      data: {
+        title: 'Create',
+      },
+    });
   }
 
   edit(row: any) {
-    this.dialog.open(JobModalComponent,{data:{
-      title:"Update",
-      jobData:row
-    }})
+    this.dialog.open(JobModalComponent, {
+      data: {
+        title: 'Update',
+        jobData: row,
+      },
+    });
   }
 
   delete(jobId: string) {

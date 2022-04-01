@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  logIn() {
+  logIn():void {
     if (this.loginForm.valid) {
       if (this.router.url == '/admin/login') {
         this.apiService.adminLogin(this.loginForm.value).subscribe((data) => {

@@ -96,14 +96,16 @@ export class JobModalComponent implements OnInit {
     }
   }
 
-  createOrUpdateJob():void {
+  createOrUpdateJob(): void {
     if (this.jobForm.valid && this.data.title == 'Create') {
       this.jobDetails = {
         title: this.jobForm.value.title,
         overview: this.jobForm.value.overview,
         qualifications: this.jobForm.value.qualifications.trim().split('\n'),
         skills: this.jobForm.value.skills.trim().split('\n'),
-        responsibilities: this.jobForm.value.responsibilities.trim().split('\n'),
+        responsibilities: this.jobForm.value.responsibilities
+          .trim()
+          .split('\n'),
         location: this.jobForm.value.location,
       };
       this.dialog.closeAll();
@@ -118,7 +120,9 @@ export class JobModalComponent implements OnInit {
         overview: this.jobForm.value.overview,
         qualifications: this.jobForm.value.qualifications.trim().split('\n'),
         skills: this.jobForm.value.skills.trim().split('\n'),
-        responsibilities: this.jobForm.value.responsibilities.trim().split('\n'),
+        responsibilities: this.jobForm.value.responsibilities
+          .trim()
+          .split('\n'),
         location: this.jobForm.value.location,
       };
       this.dialog.closeAll();

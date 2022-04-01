@@ -1,9 +1,15 @@
-<div class="text-center py-10 text-2xl" *ngIf="status; else nothing">
-  <span>Your Status : {{ status.status }}</span>
+<div *ngIf="appliedStatus.data.length > 0; else nothing">
+  <div
+    class="text-center py-10 text-2xl space-y-5 mb-2 bg-slate-200"
+    *ngFor="let status of appliedStatus.data"
+  >
+    <div>Job Id : {{ status.jobId }}</div>
+    <div>Your Status : {{ status.status }}</div>
+  </div>
 </div>
 
 <ng-template #nothing>
-  <div class="text-center py-10 text-2xl">
-    <span>Your Status : </span><span class="text-green-500">In Progress</span>
+  <div class="text-center py-10 text-2xl space-y-5 mb-2 bg-slate-200">
+    <div>Status : <span class="text-green-500">In Progress</span></div>
   </div>
 </ng-template>
