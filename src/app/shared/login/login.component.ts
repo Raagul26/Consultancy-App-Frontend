@@ -37,18 +37,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  logIn():void {
+  logIn(): void {
     if (this.loginForm.valid) {
       if (this.router.url == '/admin/login') {
         this.apiService.adminLogin(this.loginForm.value).subscribe((data) => {
-          console.log(data);
           localStorage.setItem('isAdminLoggedIn', 'true');
           this.router.navigateByUrl('/dashboard');
         });
       } else {
         this.apiService.candidateLogin(this.loginForm.value).subscribe(
           (data) => {
-            console.log(data);
             localStorage.setItem('isCandidateLoggedIn', 'true');
             localStorage.setItem(
               'candidateEmailId',

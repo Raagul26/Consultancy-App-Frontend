@@ -1,5 +1,20 @@
 <div class="bg-slate-200 h-screen flex justify-center items-center">
   <div class="p-8 shadow-lg rounded-xl text-center bg-white w-2/6">
+    <div
+      class="text-right cursor-pointer hover:text-blue-400"
+      routerLink="/admin/login"
+      *ngIf="!isAdmin"
+    >
+      Admin
+    </div>
+    <div
+      class="text-right cursor-pointer hover:text-blue-400"
+      routerLink="/login"
+      *ngIf="isAdmin"
+    >
+      Candidate
+    </div>
+
     <h1 class="text-3xl font-bold text-cyan-500">Sign In</h1>
     <h3 class="text-1xl font-semibold text-gray-500">
       Sign in to your account!
@@ -40,7 +55,12 @@
         </button>
       </mat-form-field>
 
-      <button mat-flat-button class="bg-cyan-500 text-white" type="submit" (click)="logIn()">
+      <button
+        mat-flat-button
+        class="bg-cyan-500 text-white"
+        type="submit"
+        (click)="logIn()"
+      >
         Sign In
       </button>
     </form>

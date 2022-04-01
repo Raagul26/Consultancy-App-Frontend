@@ -79,7 +79,7 @@ export class CandidateModalComponent implements OnInit {
     }
   }
 
-  createOrUpdateCandidate():void {
+  createOrUpdateCandidate(): void {
     if (this.candidateForm.valid && this.data.title == 'Create') {
       this.candidateDetails = {
         name: this.candidateForm.value.name,
@@ -97,8 +97,6 @@ export class CandidateModalComponent implements OnInit {
         .createCandidate(this.candidateDetails)
         .subscribe((data) => {
           this.reloadComponent();
-
-          console.log(data);
         });
     } else if (this.candidateForm.valid && this.data.title == 'Update') {
       this.candidateDetails = {
@@ -117,7 +115,6 @@ export class CandidateModalComponent implements OnInit {
         .updateCandidate(this.candidateDetails)
         .subscribe((data) => {
           this.reloadComponent();
-          console.log(data);
         });
     }
   }
