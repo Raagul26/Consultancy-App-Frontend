@@ -1,0 +1,9 @@
+<div class="text-center py-10 text-2xl" *ngIf="status; else nothing">
+  <span>Your Status : {{ status.status }}</span>
+</div>
+
+<ng-template #nothing>
+  <div class="text-center py-10 text-2xl">
+    <span>Your Status : </span><span class="text-green-500">In Progress</span>
+  </div>
+</ng-template>

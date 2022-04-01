@@ -1,0 +1,14 @@
+<nav class="bg-slate-300 h-16 flex items-center p-5">
+  <div class="uppercase text-2xl font-medium cursor-default text-gray-600">
+    Admin dashboard
+  </div>
+  <span class="flex-1"></span>
+  <div class="space-x-8 text-lg">
+    <a (click)="jobs()" class="cursor-pointer hover:text-gray-600">Jobs</a>
+    <a (click)="candidates()" class="cursor-pointer hover:text-gray-600">Candidates</a>
+    <a (click)="appliedJobs()" class="cursor-pointer hover:text-gray-600">Applied Jobs</a>
+    <a (click)="logout()" class="cursor-pointer hover:text-gray-600">Logout</a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

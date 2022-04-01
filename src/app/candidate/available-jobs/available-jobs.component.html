@@ -1,0 +1,39 @@
+<div class="bg-slate-200">
+  <div class="text-center py-5 text-2xl uppercase text-gray-600">
+    We Are Hiring
+  </div>
+  <div *ngFor="let job of availableJobs?.data" class="p-5 flex justify-center">
+    <div class="bg-white space-y-5 p-5 text-base w-4/6 rounded-md">
+      <div class="space-x-5">
+        <span class="font-medium">Job Title :</span>
+        <span>{{ job.title }}</span>
+      </div>
+      <div class="space-x-5">
+        <span class="font-medium">Overview :</span>
+        <span>{{ job.overview }}</span>
+      </div>
+      <div class="space-x-5">
+        <span class="font-medium">Qualifications :</span>
+        <div *ngFor="let qualification of job.qualifications">
+          {{ qualification }}
+        </div>
+      </div>
+      <div class="space-x-5">
+        <span class="font-medium">Skills :</span>
+        <ul>
+          <li *ngFor="let skill of job.skills">{{ skill }}</li>
+        </ul>
+      </div>
+      <div class="space-x-5">
+        <span class="font-medium">Responsibilities :</span>
+        <div *ngFor="let responsibility of job.responsibilities">
+          {{ responsibility }}
+        </div>
+      </div>
+      <div class="space-x-5">
+        <span class="font-medium">Location :</span>
+        <span>{{ job.location }}</span>
+      </div>
+    </div>
+  </div>
+</div>

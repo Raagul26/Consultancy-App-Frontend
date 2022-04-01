@@ -1,0 +1,42 @@
+<div>
+  <div class="mb-5 text-xl uppercase">{{ data.title }}</div>
+  <form [formGroup]="applyForm" class="space-x-5">
+    
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Job Id</mat-label>
+      <mat-select formControlName="jobId">
+        <mat-option value="{{ jobId }}" *ngFor="let jobId of jobIds">
+          {{ jobId }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Candidate Email Id</mat-label>
+      <mat-select formControlName="emailId">
+        <mat-option value="{{ emailId }}" *ngFor="let emailId of emailIds">
+          {{ emailId }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="data.title == 'Update'">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Applied"> Applied </mat-option>
+        <mat-option value="Calling"> Calling </mat-option>
+        <mat-option value="Shortlist"> Shortlist </mat-option
+        ><mat-option value="Interview"> Interview </mat-option
+        ><mat-option value="Offer"> Offer </mat-option>
+        <mat-option value="Drop"> Drop </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="flex justify-end space-x-5">
+      <button mat-stroked-button mat-dialog-close>Cancel</button>
+      <button mat-stroked-button (click)="applyJobOrChangeStatus()">
+        {{ data.title }}
+      </button>
+    </div>
+  </form>
+</div>

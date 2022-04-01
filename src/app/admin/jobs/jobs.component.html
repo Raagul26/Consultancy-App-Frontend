@@ -1,0 +1,54 @@
+<div class="h-fit p-5 pt-16 bg-slate-100">
+  <div class="flex justify-end">
+    <button
+      (click)="create()"
+      class="bg-transparent hover:bg-blue-500 text-blue-400 text-base font-semibold hover:text-white py-2 px-4 mb-5 border border-blue-500 hover:border-transparent rounded"
+    >
+      Create Job
+    </button>
+  </div>
+  <div>
+    <table class="min-w-full bg-gray-200 table-fixed">
+      <thead class="text-center bg-gray-400 h-12 text-gray-700">
+        <tr class="uppercase">
+          <th class="w-20">Job Id</th>
+          <th>Title</th>
+          <th>Overview</th>
+          <th>Qualifications</th>
+          <th>Location</th>
+          <th>Skills</th>
+          <th>Responsibilities</th>
+          <th>Status</th>
+          <th class="w-28">Created On</th>
+          <th class="w-28">Last Updated On</th>
+          <th class="w-32">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-center text-sm">
+        <tr
+          *ngFor="let job of jobs?.data"
+          class="h-24 my-5 hover:bg-gray-300 border-b border-gray-300"
+        >
+          <td>{{ job.jobId }}</td>
+          <td>{{ job.title }}</td>
+          <td>{{ job.overview }}</td>
+          <td>{{ job.qualifications.toString().replaceAll(",", ", ") }}</td>
+          <td>{{ job.location }}</td>
+          <td>{{ job.skills.toString().replaceAll(",", ", ") }}</td>
+          <td>{{ job.responsibilities.toString().replaceAll(",", ", ") }}</td>
+          <td>{{ job.status }}</td>
+          <td>{{ job.createdOn | date }}</td>
+          <td>{{ job.lastUpdatedOn | date }}</td>
+          <td>
+            <div *ngIf="job.status == 'active'" class="space-x-4">
+              <button class="hover:text-blue-500" (click)="edit(job)">Edit</button>
+              <button class="hover:text-red-500" (click)="delete(job.jobId)">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

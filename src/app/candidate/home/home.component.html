@@ -1,0 +1,48 @@
+<mat-toolbar>
+  <span routerLink="/" class="cursor-default">HR Consulting App</span>
+  <span class="flex-1"></span>
+  <button
+    mat-stroked-button
+    routerLink="/login"
+    class="text-white bg-zinc-400"
+    *ngIf="!isCandidateLoggedIn"
+  >
+    Login
+  </button>
+  <div
+    [matMenuTriggerFor]="menu"
+    class="bg-gray-300 rounded-full cursor-pointer"
+    *ngIf="isCandidateLoggedIn"
+  >
+    <svg
+      class="w-6 h-6 m-3"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+      />
+    </svg>
+  </div>
+  <mat-menu #menu="matMenu" class="w-48">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item routerLink="candidate/status">
+      <mat-icon>event</mat-icon>
+      <span>My Status</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

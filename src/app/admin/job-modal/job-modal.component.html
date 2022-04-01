@@ -1,0 +1,50 @@
+<div class="max-h-screen">
+  <div class="my-3 text-xl uppercase">{{ data.title }}</div>
+  <form class="grid grid-cols-2 gap-5" [formGroup]="jobForm">
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title" />
+      <mat-error>Enter Job Title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Overview</mat-label>
+      <textarea matInput formControlName="overview"></textarea>
+      <mat-error>Enter Job Overview</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Qualifications</mat-label>
+      <textarea matInput formControlName="qualifications"></textarea>
+      <mat-hint>One qualification in a line</mat-hint>
+      <mat-error>Enter Job Qualifications</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Skills</mat-label>
+      <textarea matInput formControlName="skills"></textarea>
+      <mat-hint>One skill in a line</mat-hint>
+      <mat-error>Enter Job Skills</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Responsibilities</mat-label>
+      <textarea matInput formControlName="responsibilities"></textarea>
+      <mat-hint>One responsibility in a line</mat-hint>
+      <mat-error>Enter Job Responsibilities</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Location</mat-label>
+      <input matInput type="text" formControlName="location" />
+      <mat-error>Enter Job Location</mat-error>
+    </mat-form-field>
+
+    <div class="flex justify-end space-x-5 col-span-2">
+      <button mat-stroked-button mat-dialog-close>Cancel</button>
+      <button mat-stroked-button (click)="createOrUpdateJob()">
+        {{ data.title }}
+      </button>
+    </div>
+  </form>
+</div>

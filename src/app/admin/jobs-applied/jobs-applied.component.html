@@ -1,0 +1,37 @@
+<div class="h-screen p-5 pt-16 bg-slate-100">
+  <div class="flex justify-end">
+    <button
+      (click)="applyJob()"
+      class="bg-transparent hover:bg-blue-500 text-blue-400 text-base font-semibold hover:text-white py-2 px-4 mb-5 border border-blue-500 hover:border-transparent rounded"
+    >
+      Apply Job
+    </button>
+  </div>
+  <div>
+    <table class="min-w-full bg-gray-200 table-fixed">
+      <thead class="text-center bg-gray-400 h-12 text-gray-700">
+        <tr class="uppercase">
+          <th>Job Id</th>
+          <th>Email Id</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-center text-sm">
+        <tr
+          *ngFor="let application of applications?.data"
+          class="h-20 my-5 hover:bg-gray-300 border-b border-gray-300"
+        >
+          <td>{{ application.jobId }}</td>
+          <td>{{ application.emailId }}</td>
+          <td>{{ application.status }}</td>
+          <td>
+            <div class="space-x-4">
+              <button mat-raised-button (click)="changeStatus(application)">Change Status</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
